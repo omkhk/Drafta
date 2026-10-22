@@ -29,49 +29,5 @@ All diagrams remain 100% in your browser. No accounts required, no tracking, and
 
 ---
 
-## 🔒 Security Hardening
 
-* **Production Dependencies**: 0 vulnerabilities (`npm audit --omit=dev`).
-* **Safe JSON Deserialization**: Strict reviver blocking prototype pollution (`__proto__`, `constructor`, `prototype`).
-* **Input Validation**: Coordinate and dimension bounds enforcement, color sanitization, string length clamping.
-* **DoS Protection**: File upload size capped at 15MB to prevent memory exhaustion.
-* **Content Security**: No `eval`, no `dangerouslySetInnerHTML`, canvas drawing isolated from DOM injection.
 
----
-
-## 🚀 How to Run Locally
-
-```bash
-# 1. Install dependencies
-npm install
-
-# 2. Start development server
-npm run dev
-```
-
-Or on Windows, simply double-click **`start.bat`**. Open **`http://localhost:5173`**.
-
----
-
-## 🌐 How to Make It Live (Production Deployment)
-
-Drafta compiles down to a 100% static client-side bundle with zero backend dependencies.
-
-```bash
-npm run build
-```
-
-This generates an optimized static bundle in the `dist/` directory (~70 kB gzipped).
-
-### Deployment Options:
-
-1. **Vercel**:
-   ```bash
-   npx vercel deploy --prod
-   ```
-2. **Netlify**:
-   Drag-and-drop the `dist/` folder into [Netlify Drop](https://app.netlify.com/drop), or run `npx netlify deploy --prod --dir=dist`.
-3. **Cloudflare Pages**:
-   Connect your GitHub repository and set build command to `npm run build` with output directory `dist`.
-4. **GitHub Pages**:
-   Use standard GitHub Pages actions deploying the `dist` folder.
